@@ -25,3 +25,14 @@ ssh internalhost
  ## OpenVPN
  Настроено для запуска из консоли Ubuntu 16.04; запускается командой  
  sudo openvpn --config otus.ovpn
+   
+
+# ДЗ №6
+Скрипты установки Ruby, MongoDB и деплоя 
+
+## Доп. задание
+Создание инстанса с использованием startup скрипта:  
+gcloud compute instances create reddit-app --boot-disk-size=10GB --image-family ubuntu-1604-lts --image-project=ubuntu-os-cloud --machine-type=g1-small --tags puma-server --restart-on-failure --zone=europe-west3-b --metadata-from-file startup-script=homework6/startup.sh
+
+Посмотреть логи startup скрипта  
+gcloud compute --project=infra-1890171 instances get-serial-port-output reddit-app --zone=europe-west3-b
