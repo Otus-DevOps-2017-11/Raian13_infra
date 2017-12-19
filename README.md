@@ -32,7 +32,7 @@ ssh internalhost
 
 ## Доп. задание
 Создание инстанса с использованием startup скрипта:  
-gcloud compute instances create reddit-app --boot-disk-size=10GB --image-family ubuntu-1604-lts --image-project=ubuntu-os-cloud --machine-type=g1-small --tags puma-server --restart-on-failure --zone=europe-west3-b --metadata-from-file startup-script=Raian13_infra/homework6/startup.sh
+gcloud compute instances create reddit-app --boot-disk-size=10GB --image-family ubuntu-1604-lts --image-project=ubuntu-os-cloud --machine-type=g1-small --tags puma-server --restart-on-failure --zone=europe-west3-b --metadata-from-file startup-script=homework6/startup.sh
 
 Посмотреть логи startup скрипта  
 gcloud compute --project=infra-1890171 instances get-serial-port-output reddit-app --zone=europe-west3-b
