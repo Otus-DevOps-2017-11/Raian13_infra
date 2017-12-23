@@ -1,0 +1,5 @@
+{
+"prj-id": "your_project_id",
+"src-img-family": "ubuntu-1604-lts",
+"mach-type": "g1.small"
+}
