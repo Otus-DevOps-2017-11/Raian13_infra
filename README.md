@@ -25,7 +25,6 @@ ssh internalhost
  ## OpenVPN
  Настроено для запуска из консоли Ubuntu 16.04; запускается командой  
  sudo openvpn --config otus.ovpn
-   
 
 # ДЗ №6
 Скрипты установки Ruby, MongoDB и деплоя 
@@ -36,3 +35,8 @@ gcloud compute instances create reddit-app --boot-disk-size=10GB --image-family 
 
 Посмотреть логи startup скрипта  
 gcloud compute --project=infra-1890171 instances get-serial-port-output reddit-app --zone=europe-west3-b
+
+
+# ДЗ №7
+Тестирование конфига: packer validate -var-file=./variables.json ubuntu16.json
+Сборка образа: packer build -var-file=./variables.json ubuntu16.json
