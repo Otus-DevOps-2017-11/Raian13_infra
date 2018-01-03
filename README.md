@@ -38,5 +38,8 @@ gcloud compute --project=infra-1890171 instances get-serial-port-output reddit-a
 
 
 # ДЗ №7
-Тестирование конфига: packer validate -var-file=./variables.json ubuntu16.json
+ubuntu.json - конфиг-файл для packer; в секции variables определены все доступные при сборке переменные. Переменные со значением null - должны обязательно быть заданы при сборке образа.  
+variables.json.example - пример файла переменных
+
+Тестирование конфига: packer validate -var-file=./variables.json ubuntu16.json  
 Сборка образа: packer build -var-file=./variables.json ubuntu16.json

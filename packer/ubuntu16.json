@@ -13,7 +13,7 @@
 		{
 			"type": "googlecompute",
 			"project_id": "{{user `prj-id`}}",
-			"image_name": "reddit-base-{{timestamp}}",
+			"image_name": "{{user `img-family`}}-{{timestamp}}",
 			"image_family": "{{user `img-family`}}",
 			"image_description": "{{user `image-desc`}}",
 			"source_image_family": "{{user `src-img-family`}}",
