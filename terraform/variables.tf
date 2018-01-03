@@ -1,13 +1,25 @@
 variable project {
-    description = "Project ID"
+  description = "Project ID"
 }
+
 variable region {
-    description = "Region"
-    default = "europe-west3"
+  description = "Region"
+  default     = "europe-west3"
 }
+
+variable zone {
+  description = "Zone"
+  default     = "europe-west3-b"
+}
+
 variable public_key_path {
-    description = "Path to public key used for SSH access"
+  description = "Path to public key used for SSH access"
 }
+
+variable private_key_path {
+  description = "Path to private key used for SSH access"
+}
+
 variable disk_image {
-    description = "Disk image"
+  description = "Disk image"
 }
