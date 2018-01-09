@@ -1,5 +1,5 @@
 resource "google_compute_instance" "db" {
-  name         = "reddit-db"
+  name         = "${var.instance_tag}"
   machine_type = "g1-small"
   zone         = "${var.zone}"
 
@@ -23,10 +23,10 @@ resource "google_compute_instance" "db" {
     sshKeys = "appuser:${file(var.public_key_path)}"
   }
 
-  tags = ["reddit-db"]
+  tags = ["${var.instance_tag}"]
 }
 
-  resource "google_compute_firewall" "firewall_mongo" {
+resource "google_compute_firewall" "firewall_mongo" {
   name = "allow-mongo-default"
 
   # В какой сети действует правило
@@ -39,7 +39,7 @@ resource "google_compute_instance" "db" {
   }
 
   # Правило применимо для инстансов с тэгом ...
-  target_tags = ["reddit-db"]
+  target_tags = ["${var.instance_tag}"]
 
   # Порт будет доступен только для инстансов с тэгом ...
   source_tags = ["reddit-app"]

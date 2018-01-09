@@ -1,5 +1,5 @@
 resource "google_compute_instance" "app" {
-  name         = "reddit-app"
+  name         = "${var.instance_tag}"
   machine_type = "g1-small"
   zone         = "${var.zone}"
 
@@ -25,11 +25,11 @@ resource "google_compute_instance" "app" {
     sshKeys = "appuser:${file(var.public_key_path)}"
   }
 
-  tags = ["reddit-app"]
+  tags = ["${var.instance_tag}"]
 }
 
 resource "google_compute_address" "app_ip" {
-  name = "reddit-app-ip"
+  name = "${var.instance_tag}-ip"
 }
 
 resource "google_compute_firewall" "firewall_puma" {
@@ -45,9 +45,8 @@ resource "google_compute_firewall" "firewall_puma" {
   }
 
   # Каким адресам разрешаем доступ
-  source_ranges = ["0.0.0.0/0"]
+  source_ranges = "${var.source_ranges}"
 
   # Правило применимо для инстансов с тэгом ...
-  target_tags = ["reddit-app"]
+  target_tags = ["${var.instance_tag}"]
 }
-

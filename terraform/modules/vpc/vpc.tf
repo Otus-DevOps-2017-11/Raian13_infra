@@ -11,9 +11,8 @@ resource "google_compute_firewall" "firewall_ssh" {
   }
 
   # Каким адресам разрешаем доступ
-  source_ranges = ["0.0.0.0/0"]
+  source_ranges = "${var.source_ranges}"
 
   # Описание правила
   description = "Allow SSH from anywhere"
-
 }
