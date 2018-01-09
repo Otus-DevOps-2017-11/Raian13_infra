@@ -1,0 +1,40 @@
+{
+	"variables": {
+		"prj-id": null,
+		"img-family": null,
+		"image-desc": null,
+		"src-img-family": null,
+		"mach-type": "f1-micro",
+		"disk-size": "10",
+		"network": "default",
+		"img-tags": "http-server"
+	},	
+	"builders": [
+		{
+			"type": "googlecompute",
+			"project_id": "{{user `prj-id`}}",
+			"image_name": "{{user `img-family`}}-{{timestamp}}",
+			"image_family": "{{user `img-family`}}",
+			"image_description": "{{user `image-desc`}}",
+			"source_image_family": "{{user `src-img-family`}}",
+			"zone": "europe-west3-b",
+			"ssh_username": "appuser",
+			"machine_type": "{{user `mach-type`}}",
+			"disk_size": "{{user `disk-size`}}",
+			"network": "{{user `network`}}",
+			"tags": "{{user `img-tags`}}"
+		}
+	],
+	"provisioners": [
+		{
+			"type": "shell",
+			"script": "scripts/install_ruby.sh",
+			"execute_command": "sudo {{.Path}}"
+		},
+		{
+			"type": "shell",
+			"script": "scripts/install_mongodb.sh",
+			"execute_command": "sudo {{.Path}}"
+		}
+	]
+}

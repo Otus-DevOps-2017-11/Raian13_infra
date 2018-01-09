@@ -1,0 +1,10 @@
+{
+"prj-id": "your_project_id",
+"img-family": "test-app-base",
+"image-desc": "Test application image",
+"src-img-family": "ubuntu-1604-lts",
+"mach-type": "g1-small",
+"disk-size": "8",
+"network": "default",
+"img-tags": "http-server,https-server,puma-server" 
+}
