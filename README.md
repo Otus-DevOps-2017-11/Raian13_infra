@@ -43,3 +43,15 @@ variables.json.example - пример файла переменных
 
 Тестирование конфига: packer validate -var-file=./variables.json ubuntu16.json  
 Сборка образа: packer build -var-file=./variables.json ubuntu16.json
+
+# ДЗ №8
+Файлы размещаются в каталоге terraform:  
+main.tf - основной файл конфигурации;  
+variables.tf и outputs.tf - input и output переменные;  
+terraform.tfvars.example - пример файла со значениями переменных;  
+files/puma.service, files/deploy.sh - файлы развертывания и запуска Puma как службы. 
+
+# Запуск и проверка
+terraform plan  
+terraform apply -auto-approve 
+<p>curl http://`terraform output app_external_ip`:9292</p>
