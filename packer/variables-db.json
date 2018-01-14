@@ -1,7 +1,0 @@
-{
-"prj-id": "infra-1890171",
-"img-family": "reddit-base-db",
-"image-desc": "Test image: Ubuntu 16.04 + MongoDB",
-"src-img-family": "ubuntu-1604-lts",
-"img-tags": "http-server,https-server,puma-server" 
-}
