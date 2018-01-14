@@ -81,3 +81,8 @@ Outputs:
 | Name | Description | Default | Область применения |
 | ---  | --- |  --- | --- |
 | app_external_ip | App server external IP |  | Проект (наследуется из модуля app)
+| db_external_ip | Database server external IP |  | Проект (наследуется из модуля db)
+
+# ДЗ №10 - Ansible (основы)
+
+Создан конфиг ansible.cfg, два варианта inventory - обычный и yaml варианты. 
