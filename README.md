@@ -44,7 +44,7 @@ variables.json.example - пример файла переменных
 Тестирование конфига: packer validate -var-file=./variables.json ubuntu16.json  
 Сборка образа: packer build -var-file=./variables.json ubuntu16.json
 
-# ДЗ №8
+# ДЗ №8 - Terraform основы
 Файлы размещаются в каталоге terraform:  
 main.tf - основной файл конфигурации;  
 variables.tf и outputs.tf - input и output переменные;  
@@ -55,3 +55,29 @@ files/puma.service, files/deploy.sh - файлы развертывания и �
 terraform plan  
 terraform apply -auto-approve 
 <p>curl http://`terraform output app_external_ip`:9292</p>
+
+# ДЗ №9 - Модули Terraform
+## Описание
+Terraform - модули для сервера приложений, сервера БД и файрволла
+
+Примеры развертывания - в prod и stage.
+
+В storage-bucket.tf - пример работы с модулем из реестра. 
+
+Inputs:
+
+| Name | Description | Default | Область применения |
+| ---  | --- |  --- | --- |
+| project | Project ID |  | Проект
+| region | Region | europe-west3 | Проект 
+| zone |Zone| europe-west3-b | Модули app, db
+| public_key_path | Path to public key used for SSH access |  | Модули app, db
+| app_disk_image | Disk image for reddit app | reddit-base-app | Модуль app
+| db_disk_image | Disk image for reddit db | reddit-base-db | Модуль db
+| instance_tag |Instance identifier |  | Модули app, db
+| source_ranges | Firewall: allowed IP addresses | 0.0.0.0/0 |Модули app, vpc
+
+Outputs:
+| Name | Description | Default | Область применения |
+| ---  | --- |  --- | --- |
+| app_external_ip | App server external IP |  | Проект (наследуется из модуля app)
