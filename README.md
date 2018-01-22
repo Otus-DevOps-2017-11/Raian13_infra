@@ -86,3 +86,18 @@ Outputs:
 # ДЗ №10 - Ansible (основы)
 
 Создан конфиг ansible.cfg, два варианта inventory - обычный и yaml варианты. 
+
+# ДЗ №11 - Ansible playbooks
+
+Подготовлены следующие ansible playbooks:
+reddit-app-one-play.yml - все задачи в одном файле и в одном сценарии, при запуске нужно ограничивать по тегу и группе хостов:  
+ansible-playbook reddit-app-one-play.yml --limit app --tags app-tag  
+
+reddit-app-multiple-plays.yml - все задачи в одном файле и в множестве сценариев; при запуске достаточно ограничить только по тегу:
+ansible-playbook reddit-app-multiple-plays.yml --tags app-tag
+
+site.yml + app.yml + db.yml + deploy.yml - каждый сценарий в своем файле, есть объединяющий сценарий. Запускать можно как отдельные сценарии, так и сводный файл для полного цикла деплоя. 
+
+packer-app.yml, packer-db.yml - плейбуки для Packer, заменяющие скрипты установки ПО для сервера приложений и сервера БД. Используются при подготовке образа с помощью Packer:
+packer build -var-file=./variables-app.json app.json
+
