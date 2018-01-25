@@ -50,3 +50,22 @@ resource "google_compute_firewall" "firewall_puma" {
   # Правило применимо для инстансов с тэгом ...
   target_tags = ["${var.instance_tag}"]
 }
+
+resource "google_compute_firewall" "firewall_nginx" {
+  name = "allow-http-default"
+
+  # В какой сети действует правило
+  network = "default"
+
+  # Какой доступ разрешить
+  allow {
+    protocol = "tcp"
+    ports    = ["80"]
+  }
+
+  # Каким адресам разрешаем доступ
+  source_ranges = "${var.source_ranges}"
+
+  # Правило применимо для инстансов с тэгом ...
+  target_tags = ["${var.instance_tag}"]
+}
