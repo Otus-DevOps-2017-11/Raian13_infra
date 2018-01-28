@@ -1,0 +1,27 @@
+---
+- name: Add mongodb repository key
+  apt_key:
+    keyserver: keyserver.ubuntu.com
+    id: EA312927
+  tags: install
+
+- name: Add mongodb repository
+  apt_repository:
+    filename: mongodb-org-3.2
+    repo: deb http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.2 multiverse
+    state: present
+  tags: install
+
+- name: install mongodb
+  apt:
+    update_cache: yes
+    name: mongodb-org
+    state: installed
+  tags: install
+
+- name: setup mongod service
+  systemd: 
+    name: mongod
+    enabled: yes
+    state: restarted
+  tags: install
