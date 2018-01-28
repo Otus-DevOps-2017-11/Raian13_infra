@@ -13,3 +13,4 @@ jdauphant.nginx
 *.pyc
 .molecule
 .cache
+.yamllint
