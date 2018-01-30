@@ -1,13 +1,7 @@
 - name: Configure app host
   become: true
   hosts: all
-  tasks:
-    - name: install ruby
-      apt:
-        update_cache: yes
-        name: "{{ item }}"
-        state: installed
-      with_items:
-        - ruby-full
-        - ruby-bundler
-        - build-essential
+
+  roles: 
+    - app
+    

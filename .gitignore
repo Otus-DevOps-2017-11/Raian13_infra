@@ -8,3 +8,9 @@ variables-*.json
 *.retry
 .vscode
 jdauphant.nginx
+# Vagrant & Molecule
+.vagrant/
+*.log
+*.pyc
+.molecule
+.cache

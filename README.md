@@ -120,3 +120,9 @@ packer build -var-file=./variables-app.json app.json
 cd terraform/stage; terraform apply  
 cd ../../ansible; nano environments/stage/inventory  # вносим IP stage окружения
 ansible-playbook -i environments/stage/inventory playbooks/site.yml
+
+## ДЗ №13 - Ansible, Vagrant, Molecule
+
+Подготовлен Vagrant файл с ansible провижинингом для локального развертывания стенда (сервер приложения + сервер СУБД). Приложение проксируется через nginx и доступно на TCP/80.  
+Роли app и db доработаны для использования с Vagrant. Доработаны шаблоны Packer для корректной работы с измененными ролями.  
+Написаны и проверены тесты к роли db.  

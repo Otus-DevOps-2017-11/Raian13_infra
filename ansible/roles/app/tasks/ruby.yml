@@ -1,0 +1,12 @@
+---
+- name: install ruby
+  apt:
+    update_cache: yes
+    name: "{{ item }}"
+    state: installed
+  with_items:
+    - ruby-full
+    - ruby-bundler
+    - build-essential
+  tags: ruby
+  
